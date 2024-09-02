@@ -5,18 +5,23 @@
 @import url('./components/_link-button.css');
 @import url('./components/_gallery.css');
 
-.s-wrapper{
+.s-wrapper {
     display: flex;
     height: 100vh;
     flex-flow: row nowrap;
 }
 
-.s-wrapper video{
+.s-wrapper video {
     position: fixed;
     width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz com que o vídeo cubra o fundo sem distorção */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Garante que o vídeo fique atrás do conteúdo */
 }
 
-.s-wrapper .s-left-column{
+.s-wrapper .s-left-column {
     width: 100px;
     height: 100%;
     display: flex;
@@ -29,14 +34,14 @@
     z-index: 1;
 }
 
-.s-wrapper .s-main-content{
+.s-wrapper .s-main-content {
     height: 100%;
     width: 100%;
     position: relative;
     padding-left: 130px;
 }
 
-.navigator{
+.navigator {
     height: 80vh;
     display: flex;
     justify-content: center;
@@ -45,23 +50,23 @@
     position: relative;
 }
 
-.navigator ul li{
+.navigator ul li {
     margin: 60px 0;
 }
 
-.navigator ul li:first-child{
+.navigator ul li:first-child {
     margin-top: 0;
 }
 
-.navigator ul li:last-child{
+.navigator ul li:last-child {
     margin-bottom: 0;
 }
 
-.navigator ul li:last-child a{
+.navigator ul li:last-child a {
     font-size: 10px;
 }
 
-.navigator ul li a{
+.navigator ul li a {
     color: white;
     border: solid 2px white;
     width: 45px;
@@ -73,7 +78,7 @@
     justify-content: center;
 }
 
-.navigator::before{
+.navigator::before {
     content: '';
     position: absolute;
     top: 0;
@@ -83,78 +88,86 @@
     z-index: 0;
 }
 
-.navigator ul{
+.navigator ul {
     z-index: 1;
 }
 
 .navigator ul li a:hover,
-.navigator ul li a.active{
+.navigator ul li a.active {
     color: var(--primary-color);
     background-color: white;
 }
 
-.navigator .navigator__icon{
+.navigator .navigator__icon {
     position: absolute;
     top: -20px;
 }
 
-.s-wrapper .s-main-content__top{
+.s-wrapper .s-main-content__top {
     height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.s-wrapper .s-main-content__bottom{
+.s-wrapper .s-main-content__bottom {
     height: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
-.s-wrapper .s-main-content .s-logo img{
+.s-wrapper .s-main-content .s-logo img {
     margin-top: 50px;
     margin-left: 0;
     margin-bottom: 30px;
 }
 
-.s-wrapper .s-main-content__top .s-description{
+.s-wrapper .s-main-content__top .s-description {
     background-color: rgba(0, 0, 0, .7);
     max-width: 50%;
     padding: 20px;
     border-radius: 10px;
 }
 
-.s-wrapper .s-main-content__top .s-description .s-description__text p{
+.s-wrapper .s-main-content__top .s-description .s-description__text p {
     color: white;
     line-height: 170%;
 }
 
-.s-wrapper .s-main-content__top .s-description .pills{
+.s-wrapper .s-main-content__top .s-description .pills {
     margin-bottom: 20px;
 }
 
-.s-wrapper .s-main-content .s-links{
+.s-wrapper .s-main-content .s-links {
     padding: 20px;
     padding-left: 0;
 }
 
-.s-wrapper .s-main-content .s-links ul{
+.s-wrapper .s-main-content .s-links ul {
     display: flex;
     flex-direction: row;
 }
 
-.s-spiderman-01-01{
-    background-image: url('../images/spiderman-tobey/movie-01/background.png');
-    background-size: cover;
+/* Estilo da galeria de imagens */
+.s-main-content__bottom .gallery ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    flex-wrap: wrap; /* Permite que as imagens quebrem para a linha seguinte em telas menores */
 }
 
-.s-spiderman-01-02{
-    background-image: url('../images/spiderman-tobey/movie-02/background.png');
-    background-size: cover;
+.s-main-content__bottom .gallery ul li {
+    flex: 1;
+    margin: 0 10px;
+    min-width: 100px; /* Ajuste conforme necessário para se adaptar ao layout */
 }
 
-.s-spiderman-01-03{
-    background-image: url('../images/spiderman-tobey/movie-03/background.png');
-    background-size: cover;
+.s-main-content__bottom .gallery ul li img {
+    width: 100%;
+    height: 200px; /* Ajuste a altura conforme necessário */
+    object-fit: cover; /* Mantém a proporção da imagem e cobre o contêiner */
 }
+
